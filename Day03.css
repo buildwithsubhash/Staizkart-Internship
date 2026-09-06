@@ -1,0 +1,251 @@
+
+/* ==============================
+   General Styling
+   ============================== */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #f4f7fb;
+    color: #222;
+}
+
+
+/* ==============================
+   Header
+   ============================== */
+
+header {
+    background-color: #1e293b;
+    color: white;
+    text-align: center;
+    padding: 50px 20px;
+}
+
+header h1 {
+    font-size: 42px;
+    margin-bottom: 10px;
+}
+
+header p {
+    font-size: 18px;
+}
+
+
+/* ==============================
+   Navigation
+   ============================== */
+
+nav {
+    background-color: #0f172a;
+    text-align: center;
+    padding: 15px;
+    position: sticky;
+    top: 0;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 15px;
+    font-weight: bold;
+}
+
+nav a:hover {
+    color: #38bdf8;
+}
+
+
+/* ==============================
+   Main Content
+   ============================== */
+
+main {
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+section {
+    background-color: white;
+    padding: 35px;
+    margin-bottom: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+section h2 {
+    color: #1e3a8a;
+    font-size: 28px;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #38bdf8;
+    padding-bottom: 8px;
+}
+
+section h3 {
+    color: #334155;
+    margin-bottom: 10px;
+}
+
+section p {
+    margin-bottom: 15px;
+}
+
+
+/* ==============================
+   Profile Image
+   ============================== */
+
+#home {
+    text-align: center;
+}
+
+#home img {
+    width: 180px;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin: 20px 0;
+    border: 5px solid #38bdf8;
+}
+
+
+/* ==============================
+   Skills
+   ============================== */
+
+#skills ul {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+#skills li {
+    background-color: #e0f2fe;
+    color: #075985;
+    padding: 10px 18px;
+    border-radius: 20px;
+    font-weight: bold;
+}
+
+
+/* ==============================
+   Contact Form
+   ============================== */
+
+form {
+    max-width: 600px;
+    margin: auto;
+}
+
+form div {
+    margin-bottom: 18px;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 7px;
+    color: #334155;
+}
+
+input,
+textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+    font-size: 16px;
+    font-family: inherit;
+}
+
+input:focus,
+textarea:focus {
+    outline: none;
+    border-color: #38bdf8;
+    box-shadow: 0 0 5px rgba(56, 189, 248, 0.3);
+}
+
+textarea {
+    resize: vertical;
+}
+
+
+/* ==============================
+   Button
+   ============================== */
+
+button {
+    background-color: #1d4ed8;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #1e40af;
+}
+
+
+/* ==============================
+   Footer
+   ============================== */
+
+footer {
+    background-color: #1e293b;
+    color: white;
+    text-align: center;
+    padding: 25px;
+}
+
+footer hr {
+    display: none;
+}
+
+
+/* ==============================
+   Responsive Design
+   ============================== */
+
+@media (max-width: 600px) {
+
+    header h1 {
+        font-size: 32px;
+    }
+
+    nav a {
+        margin: 0 7px;
+        font-size: 14px;
+    }
+
+    main {
+        padding: 0 10px;
+    }
+
+    section {
+        padding: 25px 20px;
+    }
+
+    #home img {
+        width: 140px;
+        height: 140px;
+    }
+
+    #skills ul {
+        justify-content: center;
+    }
+}
