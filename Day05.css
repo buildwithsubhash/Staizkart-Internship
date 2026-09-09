@@ -1,0 +1,217 @@
+
+/* ==============================
+   Reset
+   ============================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* ==============================
+   Body
+   ============================== */
+
+body {
+    font-family: Arial, sans-serif;
+
+    line-height: 1.6;
+
+    background-color: #f4f7fb;
+
+    color: #222;
+}
+
+
+/* ==============================
+   Header
+   ============================== */
+
+header {
+    text-align: center;
+
+    background-color: #1e293b;
+
+    color: white;
+
+    padding: 50px 20px;
+}
+
+header h1 {
+    font-size: 40px;
+
+    margin-bottom: 10px;
+}
+
+header p {
+    font-size: 18px;
+}
+
+
+/* ==============================
+   Main
+   ============================== */
+
+main {
+    max-width: 1200px;
+
+    margin: 40px auto;
+
+    padding: 0 20px;
+}
+
+
+/* ==============================
+   Gallery Section
+   ============================== */
+
+.gallery-section {
+    background-color: white;
+
+    padding: 35px;
+
+    border-radius: 12px;
+}
+
+.gallery-section h2 {
+    text-align: center;
+
+    font-size: 30px;
+
+    color: #1e3a8a;
+
+    margin-bottom: 30px;
+}
+
+
+/* ==============================
+   CSS GRID
+   ============================== */
+
+.gallery {
+
+    display: grid;
+
+    /*
+       Three equal columns
+    */
+    grid-template-columns: repeat(3, 1fr);
+
+    /*
+       Space between rows and columns
+    */
+    gap: 20px;
+}
+
+
+/* ==============================
+   Gallery Items
+   ============================== */
+
+.gallery-item {
+    margin: 0;
+
+    background-color: #f8fafc;
+
+    border-radius: 10px;
+
+    overflow: hidden;
+
+    border: 1px solid #e2e8f0;
+
+    transition: transform 0.3s ease;
+}
+
+
+/* Image */
+
+.gallery-item img {
+    width: 100%;
+
+    height: 250px;
+
+    display: block;
+
+    object-fit: cover;
+}
+
+
+/* Caption */
+
+.gallery-item figcaption {
+    text-align: center;
+
+    padding: 12px;
+
+    font-weight: bold;
+
+    color: #334155;
+}
+
+
+/* Hover */
+
+.gallery-item:hover {
+    transform: translateY(-5px);
+}
+
+
+/* ==============================
+   RESPONSIVE DESIGN
+   ============================== */
+
+/*
+   Tablet
+*/
+
+@media (max-width: 900px) {
+
+    .gallery {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+
+/*
+   Mobile
+*/
+
+@media (max-width: 600px) {
+
+    header h1 {
+        font-size: 30px;
+    }
+
+    .gallery-section {
+        padding: 20px;
+    }
+
+    .gallery {
+        grid-template-columns: 1fr;
+    }
+
+    .gallery-item img {
+        height: 220px;
+    }
+
+}
+    
+
+/* ==============================
+   Footer
+   ============================== */
+
+footer {
+    text-align: center;
+
+    background-color: #1e293b;
+
+    color: white;
+
+    padding: 25px;
+
+    margin-top: 40px;
+}
