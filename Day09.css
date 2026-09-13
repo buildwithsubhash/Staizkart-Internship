@@ -1,0 +1,154 @@
+
+/* =================================
+   GENERAL
+================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
+
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+/* =================================
+   QUIZ CONTAINER
+================================= */
+
+.quiz-container {
+    width: 90%;
+    max-width: 600px;
+
+    text-align: center;
+}
+
+.quiz-container h1 {
+    margin-bottom: 10px;
+}
+
+#questionNumber {
+    margin-bottom: 20px;
+    color: #666;
+}
+
+
+/* =================================
+   QUIZ BOX
+================================= */
+
+.quiz-box {
+    background-color: white;
+
+    padding: 30px;
+
+    border-radius: 12px;
+
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+#question {
+    margin-bottom: 25px;
+}
+
+
+/* =================================
+   OPTIONS
+================================= */
+
+#options {
+    display: flex;
+    flex-direction: column;
+
+    gap: 12px;
+}
+
+.option {
+    padding: 14px;
+
+    border: 2px solid #ddd;
+
+    background-color: white;
+
+    border-radius: 8px;
+
+    cursor: pointer;
+
+    font-size: 16px;
+
+    transition: 0.2s;
+}
+
+.option:hover {
+    background-color: #f0f0f0;
+}
+
+.option.selected {
+    background-color: #ddd;
+}
+
+
+/* =================================
+   NEXT BUTTON
+================================= */
+
+#nextButton {
+    margin-top: 25px;
+
+    padding: 12px 25px;
+
+    border: none;
+
+    border-radius: 8px;
+
+    background-color: #222;
+
+    color: white;
+
+    font-size: 16px;
+
+    cursor: pointer;
+}
+
+#nextButton:hover {
+    background-color: #444;
+}
+
+
+/* =================================
+   SCORE
+================================= */
+
+#score {
+    margin-top: 20px;
+
+    font-size: 20px;
+
+    font-weight: bold;
+}
+
+
+/* =================================
+   MOBILE
+================================= */
+
+@media (max-width: 500px) {
+
+    .quiz-box {
+        padding: 20px;
+    }
+
+    #question {
+        font-size: 20px;
+    }
+
+}
