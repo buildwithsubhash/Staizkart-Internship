@@ -1,0 +1,213 @@
+
+/* =================================
+   GENERAL
+================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+
+    background-color: #f2f2f2;
+
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+
+    padding: 50px 20px;
+}
+
+
+/* =================================
+   TODO CONTAINER
+================================= */
+
+.todo-container {
+    width: 100%;
+    max-width: 600px;
+
+    background-color: white;
+
+    padding: 30px;
+
+    border-radius: 12px;
+
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    text-align: center;
+
+    margin-bottom: 8px;
+}
+
+.subtitle {
+    text-align: center;
+
+    color: #666;
+
+    margin-bottom: 25px;
+}
+
+
+/* =================================
+   INPUT AREA
+================================= */
+
+.input-area {
+    display: flex;
+
+    gap: 10px;
+
+    margin-bottom: 20px;
+}
+
+#taskInput {
+    flex: 1;
+
+    padding: 12px;
+
+    border: 1px solid #ccc;
+
+    border-radius: 6px;
+
+    font-size: 16px;
+}
+
+#addButton {
+    padding: 12px 18px;
+
+    border: none;
+
+    border-radius: 6px;
+
+    background-color: #222;
+
+    color: white;
+
+    cursor: pointer;
+}
+
+#addButton:hover {
+    background-color: #444;
+}
+
+
+/* =================================
+   TASK INFORMATION
+================================= */
+
+.task-info {
+    margin-bottom: 15px;
+
+    color: #555;
+}
+
+
+/* =================================
+   TASK LIST
+================================= */
+
+#taskList {
+    list-style: none;
+}
+
+
+/* =================================
+   TASK ITEM
+================================= */
+
+.task-item {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 10px;
+
+    padding: 12px;
+
+    margin-bottom: 10px;
+
+    border: 1px solid #ddd;
+
+    border-radius: 8px;
+}
+
+
+/* =================================
+   TASK TEXT
+================================= */
+
+.task-text {
+    flex: 1;
+
+    cursor: pointer;
+}
+
+.task-item.completed .task-text {
+    text-decoration: line-through;
+
+    color: #888;
+}
+
+
+/* =================================
+   BUTTONS
+================================= */
+
+.task-actions {
+    display: flex;
+
+    gap: 6px;
+}
+
+.complete-button,
+.delete-button {
+    border: none;
+
+    padding: 8px 10px;
+
+    border-radius: 5px;
+
+    cursor: pointer;
+}
+
+.complete-button {
+    background-color: #ddd;
+}
+
+.delete-button {
+    background-color: #eee;
+}
+
+
+/* =================================
+   MOBILE
+================================= */
+
+@media (max-width: 500px) {
+
+    .todo-container {
+        padding: 20px;
+    }
+
+    .input-area {
+        flex-direction: column;
+    }
+
+    #addButton {
+        width: 100%;
+    }
+
+    .task-item {
+        align-items: flex-start;
+    }
+
+}
