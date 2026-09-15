@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Tailwind To-Do App</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+</head>
+
+
+<body class="bg-gray-100 min-h-screen">
+
+    <!-- ==============================
+         MAIN CONTAINER
+    =============================== -->
+
+    <main class="max-w-2xl mx-auto px-4 py-10">
+
+
+        <!-- ==============================
+             HEADER
+        =============================== -->
+
+        <div class="text-center mb-8">
+
+            <h1
+                class="text-4xl font-bold text-gray-800 mb-2"
+            >
+                📝 My To-Do List
+            </h1>
+
+            <p class="text-gray-500">
+                Manage your daily tasks
+            </p>
+
+        </div>
+
+
+        <!-- ==============================
+             TODO CARD
+        =============================== -->
+
+        <div
+            class="bg-white rounded-2xl shadow-lg p-6"
+        >
+
+
+            <!-- ==============================
+                 INPUT AREA
+            =============================== -->
+
+            <div class="flex flex-col sm:flex-row gap-3 mb-6">
+
+                <input
+                    type="text"
+                    id="taskInput"
+                    placeholder="Enter a new task..."
+                    class="
+                        flex-1
+                        px-4
+                        py-3
+                        border
+                        border-gray-300
+                        rounded-lg
+                        outline-none
+                        focus:ring-2
+                        focus:ring-gray-500
+                    "
+                >
+
+                <button
+                    id="addButton"
+                    class="
+                        px-6
+                        py-3
+                        bg-gray-800
+                        text-white
+                        rounded-lg
+                        font-semibold
+                        hover:bg-gray-700
+                        transition
+                        duration-200
+                    "
+                >
+                    Add Task
+                </button>
+
+            </div>
+
+
+            <!-- ==============================
+                 TASK COUNT
+            =============================== -->
+
+            <div
+                class="
+                    flex
+                    justify-between
+                    items-center
+                    mb-4
+                    text-sm
+                    text-gray-500
+                "
+            >
+
+                <p id="taskCount">
+                    Total Tasks: 0
+                </p>
+
+            </div>
+
+
+            <!-- ==============================
+                 TASK LIST
+            =============================== -->
+
+            <ul id="taskList" class="space-y-3">
+
+                <!-- Tasks will be created here -->
+
+            </ul>
+
+        </div>
+
+
+        <!-- ==============================
+             FOOTER
+        =============================== -->
+
+        <footer class="text-center mt-8 text-gray-500">
+
+            <p>
+                Day 12 Tailwind CSS Assignment
+            </p>
+
+            <p class="mt-1">
+                Built by Subhash
+            </p>
+
+        </footer>
+
+    </main>
+
+
+    <!-- ==============================
+         JAVASCRIPT
+    =============================== -->
+
+    <script>
+
+        // ==========================================
+        // APP STATE
+        // ==========================================
+
+        let tasks = [];
+
+
+        // ==========================================
+        // SELECT ELEMENTS
+        // ==========================================
+
+        const taskInput =
+            document.querySelector("#taskInput");
+
+        const addButton =
+            document.querySelector("#addButton");
+
+        const taskList =
+            document.querySelector("#taskList");
+
+        const taskCount =
+            document.querySelector("#taskCount");
+
+
+        // ==========================================
+        // ADD TASK
+        // ==========================================
+
+        function addTask() {
+
+            const taskText =
+                taskInput.value.trim();
+
+
+            if (taskText === "") {
+
+                alert("Please enter a task.");
+
+                return;
+            }
+
+
+            const newTask = {
+
+                id: Date.now(),
+
+                text: taskText,
+
+                completed: false
+
+            };
+
+
+            tasks.push(newTask);
+
+            taskInput.value = "";
+
+            renderTasks();
+
+        }
+
+
+        // ==========================================
+        // RENDER TASKS
+        // ==========================================
+
+        function renderTasks() {
+
+            taskList.innerHTML = "";
+
+
+            tasks.forEach(function(task) {
+
+                // Create list item
+                const listItem =
+                    document.createElement("li");
+
+
+                listItem.className = `
+                    flex
+                    items-center
+                    justify-between
+                    gap-3
+                    p-4
+                    border
+                    border-gray-200
+                    rounded-xl
+                    bg-gray-50
+                    hover:shadow-md
+                    transition
+                    duration-200
+                `;
+
+
+                // ======================================
+                // TASK TEXT
+                // ======================================
+
+                const taskText =
+                    document.createElement("span");
+
+
+                taskText.textContent =
+                    task.text;
+
+
+                taskText.className = `
+                    flex-1
+                    text-gray-800
+                    cursor-pointer
+                `;
+
+
+                if (task.completed) {
+
+                    taskText.classList.add(
+                        "line-through",
+                        "text-gray-400"
+                    );
+
+                }
+
+
+                // ======================================
+                // ACTION BUTTONS
+                // ======================================
+
+                const actions =
+                    document.createElement("div");
+
+
+                actions.className = `
+                    flex
+                    gap-2
+                `;
+
+
+                // ======================================
+                // COMPLETE BUTTON
+                // ======================================
+
+                const completeButton =
+                    document.createElement("button");
+
+
+                completeButton.textContent =
+                    task.completed
+                        ? "Undo"
+                        : "Complete";
+
+
+                completeButton.className = `
+                    px-3
+                    py-2
+                    text-sm
+                    bg-gray-200
+                    text-gray-800
+                    rounded-lg
+                    hover:bg-gray-300
+                    transition
+                `;
+
+
+                completeButton.addEventListener(
+                    "click",
+                    function() {
+
+                        toggleTask(task.id);
+
+                    }
+                );
+
+
+                // ======================================
+                // DELETE BUTTON
+                // ======================================
+
+                const deleteButton =
+                    document.createElement("button");
+
+
+                deleteButton.textContent =
+                    "Delete";
+
+
+                deleteButton.className = `
+                    px-3
+                    py-2
+                    text-sm
+                    bg-gray-800
+                    text-white
+                    rounded-lg
+                    hover:bg-gray-700
+                    transition
+                `;
+
+
+                deleteButton.addEventListener(
+                    "click",
+                    function() {
+
+                        deleteTask(task.id);
+
+                    }
+                );
+
+
+                // ======================================
+                // BUILD TASK
+                // ======================================
+
+                actions.appendChild(
+                    completeButton
+                );
+
+                actions.appendChild(
+                    deleteButton
+                );
+
+
+                listItem.appendChild(
+                    taskText
+                );
+
+                listItem.appendChild(
+                    actions
+                );
+
+
+                taskList.appendChild(
+                    listItem
+                );
+
+            });
+
+
+            updateTaskCount();
+
+        }
+
+
+        // ==========================================
+        // COMPLETE / UNCOMPLETE
+        // ==========================================
+
+        function toggleTask(taskId) {
+
+            tasks.forEach(function(task) {
+
+                if (task.id === taskId) {
+
+                    task.completed =
+                        !task.completed;
+
+                }
+
+            });
+
+
+            renderTasks();
+
+        }
+
+
+        // ==========================================
+        // DELETE TASK
+        // ==========================================
+
+        function deleteTask(taskId) {
+
+            tasks = tasks.filter(
+                function(task) {
+
+                    return task.id !== taskId;
+
+                }
+            );
+
+
+            renderTasks();
+
+        }
+
+
+        // ==========================================
+        // UPDATE COUNT
+        // ==========================================
+
+        function updateTaskCount() {
+
+            const totalTasks =
+                tasks.length;
+
+
+            const completedTasks =
+                tasks.filter(
+                    function(task) {
+
+                        return task.completed;
+
+                    }
+                ).length;
+
+
+            taskCount.textContent =
+                "Total Tasks: " +
+                totalTasks +
+                " | Completed: " +
+                completedTasks;
+
+        }
+
+
+        // ==========================================
+        // ADD BUTTON
+        // ==========================================
+
+        addButton.addEventListener(
+            "click",
+            function() {
+
+                addTask();
+
+            }
+        );
+
+
+        // ==========================================
+        // ENTER KEY
+        // ==========================================
+
+        taskInput.addEventListener(
+            "keydown",
+            function(event) {
+
+                if (event.key === "Enter") {
+
+                    addTask();
+
+                }
+
+            }
+        );
+
+
+        // ==========================================
+        // INITIAL DISPLAY
+        // ==========================================
+
+        renderTasks();
+
+    </script>
+
+</body>
+
+</html>
