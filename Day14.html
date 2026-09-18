@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Recipe Finder | Subhash</title>
+
+    <link rel="stylesheet" href="Day14.css">
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <header>
+        <nav class="navbar">
+            <h1>🍴 Recipe Finder</h1>
+
+            <a href="#recipes">Recipes</a>
+        </nav>
+    </header>
+
+
+    <!-- Hero Section -->
+    <section class="hero">
+
+        <div class="hero-content">
+
+            <h2>Find Your Perfect Recipe</h2>
+
+            <p>
+                Search thousands of delicious recipes and discover
+                something new to cook today.
+            </p>
+
+            <form id="searchForm" class="search-box">
+
+                <input
+                    type="text"
+                    id="searchInput"
+                    placeholder="Search for a recipe..."
+                    required
+                >
+
+                <button type="submit">
+                    Search
+                </button>
+
+            </form>
+
+        </div>
+
+    </section>
+
+
+    <!-- Recipe Section -->
+    <main id="recipes">
+
+        <div class="section-heading">
+            <h2>🍽️ Recipes</h2>
+            <p id="status">Search for your favorite recipe.</p>
+        </div>
+
+        <div id="recipeContainer" class="recipe-container">
+            <!-- Recipes will be added using JavaScript -->
+        </div>
+
+    </main>
+
+
+    <!-- Recipe Modal -->
+    <div id="recipeModal" class="modal">
+
+        <div class="modal-content">
+
+            <button id="closeModal" class="close-btn">
+                &times;
+            </button>
+
+            <div id="modalContent">
+                <!-- Recipe details will appear here -->
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- Footer -->
+    <footer>
+
+        <p>
+            © 2026 Subhash Thakur | Recipe Finder
+        </p>
+
+        <p>
+            Built with HTML, CSS & JavaScript
+        </p>
+
+    </footer>
+
+
+    <script src="Day14.js"></script>
+
+</body>
+</html>
